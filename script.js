@@ -1,13 +1,7 @@
 console.log("Hello World!");
 
-//make a string variable called rock with initial value rock
-const rock = "rock";
-
-//make a string variable called paper with initial value paper
-const paper = "paper";
-
-//make a string variable called scissor with initial value scissor
-const scissor = "scissor"
+//make an array of rock paper and scissor and put them in selection variable
+const selection = ["rock", "paper", "scissor"];
 
 //make a number variable called roundNumber with initial value 1
 let roundNumber = 1;
@@ -24,6 +18,10 @@ let playerSelection;
 
 
 //[computerPlay function]:
+function computerPlay() {
+    computerSelection = selection[Math.floor(Math.random()*selection.length)];
+    return console.log(computerSelection);
+}
 //computer choose rock, paper, or scissor randomly and put the result to computerSelection variable.
 //return computerSelection.
 
