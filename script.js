@@ -1,4 +1,9 @@
-console.log("Hello World!");
+window.alert(
+  `Hey there! Let's play Rock-Paper-Scissor game with me!\nOpen the console in your browser to start the game!`
+);
+console.log(
+  `Hey there! Let's play Rock-Paper-Scissor game with me!\nType "game()" in this console and press enter to start the game!`
+);
 
 //make an array of rock paper and scissor and put them in selection variable
 const selection = ["rock", "paper", "scissor"];
@@ -12,19 +17,10 @@ let computerScore = 0;
 //make a number variable called playerScore with initial value 0
 let playerScore = 0;
 
-//make a new variable called computer Selection;
+//make a new variable called computerSelection and playerSelection;
 let computerSelection;
 let playerSelection;
 
-function playerPlay() {
-  playerSelection = window
-    .prompt("Choose one: Rock, paper, or scissor?")
-    .toLowerCase();
-
-  return playerSelection;
-}
-
-//[computerPlay function]:
 function computerPlay() {
   //computer choose rock, paper, or scissor(selection) randomly and put the result to computerSelection variable.
   computerSelection = selection[Math.floor(Math.random() * selection.length)];
@@ -32,9 +28,17 @@ function computerPlay() {
   return computerSelection;
 }
 
-//[playRound function(playerSelection, computerSelection)
+function playerPlay() {
+  //ask the player to choose between rock, paper, or scissor
+  playerSelection = window
+    .prompt("Choose Rock, Paper, or Scissor!")
+    .toLowerCase();
+  //return playerSelection
+  return playerSelection;
+}
+
 function playRound(computerSelection, playerSelection) {
-  //compare the value between computer and player selection:
+  //compare the value between computer and player selection and return the result:
   if (computerSelection == playerSelection) {
     roundNumber++;
     return `ROUND ${roundNumber}!!
@@ -64,26 +68,24 @@ You choose ${playerSelection}, Computer choose ${computerSelection}
 You win! ${playerSelection} beat ${computerSelection}
 Your score = ${playerScore} || Computer score = ${computerScore}`;
   } else {
-    return `Input error: please type either "rock", "paper", or scissor" :)`;
+    return `Input error: please type either "rock", "paper", or "scissor" :)`;
   }
 }
 
-window.alert(
-  `Hey there! Let's play Rock-Paper-Scissor game with me!\nOpen the console in your browser and type "game()" to start the game!`
-);
-
 function game() {
-  console.log(playRound(computerPlay(), playerPlay()));
-  console.log(playRound(computerPlay(), playerPlay()));
-  console.log(playRound(computerPlay(), playerPlay()));
-  console.log(playRound(computerPlay(), playerPlay()));
-  console.log(playRound(computerPlay(), playerPlay()));
+  //play 5 round game in the console
+  while (roundNumber < 5) {
+    console.log(playRound(computerPlay(), playerPlay()));
+  }
 
+  //show the final result to the player
   window.alert(
-    `Game end! Your score is: ${playerScore}, computer's is: ${computerScore}
-Thanks for playing with me! Type game() again if you want to do a rematch.`
+    `Game end! Your scores is:
+Win: ${playerScore}
+Lose: ${computerScore}
+Tie: ${5 - playerScore - computerScore}
+Thanks for playing with me! Type "game()" again in the console if you want to do a rematch.`
   );
+  playerScore = 0;
+  computerScore = 0;
 }
-
-//5x playRound
-//display the score
