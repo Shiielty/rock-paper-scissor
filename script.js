@@ -18,7 +18,7 @@ console.log("Hello World!");
 //put their selection to the playerSelection variable
 //return playerSelection
 
-//showScore();
+//game function
 
 //[playRound function(playerSelection, computerSelection)
 //compare the value between computer and player selection:
@@ -27,12 +27,7 @@ console.log("Hello World!");
 //Else if computer and player tie, return "Tie" and add round # + 1 then show the score and round number
 //Else, maybe the player didn't input the right selection, return "Please type either rock, paper, or scissor" and keep the round # as it is.
 
-//the game:
+//5x playRound
+//display the score
 
-
-// after 5 round
-//If playerScore > computerScore,
-//  display "Congratulation, you beat the computers"
-//Else if player score < computerScore,
-//  Display "Haha I win this, human XD"
 
