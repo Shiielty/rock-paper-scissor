@@ -78,6 +78,11 @@ function game() {
   console.log(playRound(computerPlay(), playerPlay()));
   console.log(playRound(computerPlay(), playerPlay()));
   console.log(playRound(computerPlay(), playerPlay()));
+
+  window.alert(
+    `Game end! Your score is: ${playerScore}, computer's is: ${computerScore}
+Thanks for playing with me! Type game() again if you want to do a rematch.`
+  );
 }
 
 //5x playRound
