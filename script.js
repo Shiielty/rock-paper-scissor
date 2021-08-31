@@ -3,8 +3,8 @@ console.log("Hello World!");
 //make an array of rock paper and scissor and put them in selection variable
 const selection = ["rock", "paper", "scissor"];
 
-//make a number variable called roundNumber with initial value 1
-let roundNumber = 1;
+//make a number variable called roundNumber with initial value 0
+let roundNumber = 0;
 
 //make a number variable called computerScore with initial value 0
 let computerScore = 0;
@@ -14,7 +14,15 @@ let playerScore = 0;
 
 //make a new variable called computer Selection;
 let computerSelection;
-let playerSelection = window.prompt("Choose one: Rock, paper, or scissor?");
+let playerSelection;
+
+function playerPlay() {
+  playerSelection = window
+    .prompt("Choose one: Rock, paper, or scissor?")
+    .toLowerCase();
+
+  return playerSelection;
+}
 
 //[computerPlay function]:
 function computerPlay() {
@@ -24,39 +32,53 @@ function computerPlay() {
   return computerSelection;
 }
 
-//[playerPlay function]:
-//player asked to input their selection use window prompt
-//while the input didn't match with any rock-paper-scissor selection, show "Wrong input, please type either rock, paper or scissor" and ask them again.
-//put their selection to the playerSelection variable
-//return playerSelection
-
-//game function
-
 //[playRound function(playerSelection, computerSelection)
 function playRound(computerSelection, playerSelection) {
+  //compare the value between computer and player selection:
   if (computerSelection == playerSelection) {
-    return `Tie! Both player choose ${computerSelection}`;
+    roundNumber++;
+    return `ROUND ${roundNumber}!!
+You choose ${playerSelection}, Computer choose ${computerSelection}
+Tie! Both player choose ${computerSelection}
+Your score = ${playerScore} || Computer score = ${computerScore}`;
   } else if (
     (computerSelection == "rock" && playerSelection == "scissor") ||
     (computerSelection == "paper" && playerSelection == "rock") ||
     (computerSelection == "scissor" && playerSelection == "paper")
   ) {
-    return `You lose! ${computerSelection} beat ${playerSelection}`;
+    computerScore++;
+    roundNumber++;
+    return `ROUND ${roundNumber}!!
+You choose ${playerSelection}, Computer choose ${computerSelection}
+You lose! ${computerSelection} beat ${playerSelection}
+Your score = ${playerScore} || Computer score = ${computerScore}`;
   } else if (
     (playerSelection == "rock" && computerSelection == "scissor") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissor" && computerSelection == "paper")
   ) {
-    return `You win! ${playerSelection} beat ${computerSelection}`;
+    playerScore++;
+    roundNumber++;
+    return `ROUND ${roundNumber}!!
+You choose ${playerSelection}, Computer choose ${computerSelection}
+You win! ${playerSelection} beat ${computerSelection}
+Your score = ${playerScore} || Computer score = ${computerScore}`;
+  } else {
+    return `Input error: please type either "rock", "paper", or scissor" :)`;
   }
 }
 
-console.log(playRound(computerPlay(), playerSelection));
-//compare the value between computer and player selection:
-//If computer win, return "Computer win", add computerScore +1, and roundNumber +1, then show the score and round number
-//Else if player win, return "You win" and, add playerScore +1, and roundNumber +1, then show the score and round number
-//Else if computer and player tie, return "Tie" and add round # + 1 then show the score and round number
-//Else, maybe the player didn't input the right selection, return "Please type either rock, paper, or scissor" and keep the round # as it is.
+window.alert(
+  `Hey there! Let's play Rock-Paper-Scissor game with me!\nOpen the console in your browser and type "game()" to start the game!`
+);
+
+function game() {
+  console.log(playRound(computerPlay(), playerPlay()));
+  console.log(playRound(computerPlay(), playerPlay()));
+  console.log(playRound(computerPlay(), playerPlay()));
+  console.log(playRound(computerPlay(), playerPlay()));
+  console.log(playRound(computerPlay(), playerPlay()));
+}
 
 //5x playRound
 //display the score
