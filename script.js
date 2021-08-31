@@ -5,26 +5,16 @@ console.log(
   `Hey there! Let's play Rock-Paper-Scissor game with me!\nType "game()" in this console and press enter to start the game!`
 );
 
-//make an array of rock paper and scissor and put them in selection variable
 const selection = ["rock", "paper", "scissor"];
-
-//make a number variable called roundNumber with initial value 0
 let roundNumber = 0;
-
-//make a number variable called computerScore with initial value 0
 let computerScore = 0;
-
-//make a number variable called playerScore with initial value 0
 let playerScore = 0;
-
-//make a new variable called computerSelection and playerSelection;
 let computerSelection;
 let playerSelection;
 
 function computerPlay() {
   //computer choose rock, paper, or scissor(selection) randomly and put the result to computerSelection variable.
   computerSelection = selection[Math.floor(Math.random() * selection.length)];
-  //return computerSelection
   return computerSelection;
 }
 
@@ -33,7 +23,6 @@ function playerPlay() {
   playerSelection = window
     .prompt("Choose Rock, Paper, or Scissor!")
     .toLowerCase();
-  //return playerSelection
   return playerSelection;
 }
 
