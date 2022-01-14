@@ -1,12 +1,7 @@
-This is my second project:
-Rock Paper Scissors Game!
+# Rock Paper Scissors Game!
 
-This is my first javascript project too. For now I'll make this game playable in console, then add the GUI later.
+# Log:
 
-Update:
-
-8/31/2021: Start the project.
-
-8/31/2021: Finish the project. I can't believe I finished it under 5 hour haha.
+8/31/2021: Finished the project (Ver 1.0: playable in browser console only)
 
 Live version: https://shiielty.github.io/rock-paper-scissor/
