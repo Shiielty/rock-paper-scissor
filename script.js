@@ -12,6 +12,7 @@ const scissorButton = document.querySelector(".scissor");
 
 const resultBox = document.querySelector(".results");
 const resultInfo = document.createElement("div");
+const h1 = document.querySelector("h1");
 
 // computer choose rock, paper, or scissor(selection) randomly and put the result to computerSelection variable.
 function computerPlay() {
@@ -24,6 +25,7 @@ function playRound(computerSelection, playerSelection) {
   if (computerSelection == playerSelection) {
     gameRound++;
     gameResult = "Tie!";
+    h1.style.cssText = "color: gray;";
     return;
   } else if (
     (computerSelection == "rock" && playerSelection == "scissor") ||
@@ -33,6 +35,7 @@ function playRound(computerSelection, playerSelection) {
     computerScore++;
     gameRound++;
     gameResult = "You lose!";
+    h1.style.cssText = "color: red;";
     return;
   } else if (
     (playerSelection == "rock" && computerSelection == "scissor") ||
@@ -42,12 +45,14 @@ function playRound(computerSelection, playerSelection) {
     playerScore++;
     gameRound++;
     gameResult = "You win!";
+    h1.style.cssText = "color: blue;";
     return;
   }
 }
 
 rockButton.addEventListener("click", () => {
-  playRound(computerPlay(), (playerSelection = "rock"));
+  playerSelection = "rock";
+  playRound(computerPlay(), playerSelection);
 
   if (playerScore == 5 || computerScore == 5) {
     resultInfo.innerHTML = `Game Over! <br /> 
@@ -56,6 +61,7 @@ rockButton.addEventListener("click", () => {
     gameRound = 0;
     playerScore = 0;
     computerScore = 0;
+    h1.style.cssText = "color: black;";
   } else {
     resultInfo.innerHTML = `Round: ${gameRound} <br /> You choose ${playerSelection}, Computer choose ${computerSelection} <br /> ${gameResult} <br /> Your scores: ${playerScore} <br /> Computer scores: ${computerScore}`;
   }
@@ -63,7 +69,8 @@ rockButton.addEventListener("click", () => {
 });
 
 paperButton.addEventListener("click", () => {
-  const round = playRound(computerPlay(), (playerSelection = "paper"));
+  playerSelection = "paper";
+  playRound(computerPlay(), playerSelection);
 
   if (playerScore == 5 || computerScore == 5) {
     resultInfo.innerHTML = `Game Over! <br /> 
@@ -72,6 +79,7 @@ paperButton.addEventListener("click", () => {
     gameRound = 0;
     playerScore = 0;
     computerScore = 0;
+    h1.style.cssText = "color: black;";
   } else {
     resultInfo.innerHTML = `Round: ${gameRound} <br /> You choose ${playerSelection}, Computer choose ${computerSelection} <br /> ${gameResult} <br /> Your scores: ${playerScore} <br /> Computer scores: ${computerScore}`;
   }
@@ -79,7 +87,8 @@ paperButton.addEventListener("click", () => {
 });
 
 scissorButton.addEventListener("click", () => {
-  const round = playRound(computerPlay(), (playerSelection = "scissor"));
+  playerSelection = "scissor";
+  playRound(computerPlay(), playerSelection);
 
   if (playerScore == 5 || computerScore == 5) {
     resultInfo.innerHTML = `Game Over! <br /> 
@@ -88,6 +97,7 @@ scissorButton.addEventListener("click", () => {
     gameRound = 0;
     playerScore = 0;
     computerScore = 0;
+    h1.style.cssText = "color: black;";
   } else {
     resultInfo.innerHTML = `Round: ${gameRound} <br /> You choose ${playerSelection}, Computer choose ${computerSelection} <br /> ${gameResult} <br /> Your scores: ${playerScore} <br /> Computer scores: ${computerScore}`;
   }
