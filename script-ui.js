@@ -5,6 +5,10 @@ let playerScore = 0;
 let computerSelection;
 let playerSelection;
 
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorButton = document.querySelector(".scissor");
+
 // computer choose rock, paper, or scissor(selection) randomly and put the result to computerSelection variable.
 function computerPlay() {
   computerSelection = selection[Math.floor(Math.random() * selection.length)];
@@ -45,3 +49,15 @@ function playRound(computerSelection, playerSelection) {
     return `Input error: please type either "rock", "paper", or "scissor" :)`;
   }
 }
+
+rockButton.addEventListener("click", () => {
+  console.log(playRound(computerPlay(), "rock"));
+});
+
+paperButton.addEventListener("click", () => {
+  console.log(playRound(computerPlay(), "paper"));
+});
+
+scissorButton.addEventListener("click", () => {
+  console.log(playRound(computerPlay(), "scissor"));
+});
